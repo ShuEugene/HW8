@@ -1,5 +1,11 @@
+//  Домашние задания к Уроку №8 «Методы»
 public class Main {
-    public static void main(String[] args) {
 
+    static void task1(){
+
+    }
+
+    public static void main(String[] args) {
+        task1();
     }
 }
