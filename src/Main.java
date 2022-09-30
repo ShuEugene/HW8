@@ -6,27 +6,36 @@ public class Main {
     public static void main(String[] args) {
 //        System.out.println();
 //        task1(2022);
+//        System.out.println();
+//        task2("2021, anDroid");
         System.out.println();
-        task2("2021, anDroid");
+        task3(25);
         System.out.println();
-
     }
 
-//  ДЗ 8.1
-    static void task1(int arg) {
-        System.out.printf("%d - %s год.", arg, yearIsLeap(arg));
+    //  ДЗ 8.3
+    static void task3(int distance) {
+        String deliveryMessage;
+        if (distance > 0) {
+            String deliveryTime = determineDTime(distance);
+            deliveryMessage = String.format("Для доставки требуется %s.", deliveryTime);
+        } else deliveryMessage = "Доставка не требуется; клиент собирается забрать карту из отделения банка самостоятельно.";
+        System.out.println(deliveryMessage);
     }
 
-    static String yearIsLeap(int year) {
-        if (year > 0) {
-            if (((year % 4) == 0 && (year % 100) != 0) || (year % 400) == 0) {
-                return "високосный";
-            } else return "не високосный";
-        }
-        throw new RuntimeException("Год введён некорректно.");
+    static String determineDTime(int distance) {
+            if (distance > 0 && distance <= 20) {
+                return "до 24 часов";
+            } else if (distance > 20 && distance <= 60) {
+                return "до двух суток";
+            } else if (distance > 60 && distance <= 100) {
+                return "до трёх суток";
+            } else {
+                return "более трёх суток";
+            }
     }
 
-//  ДЗ 8.2
+    //  ДЗ 8.2
     static void task2(String ps) {
         int clientOSIndex = 0;
         int deviceReleaseYear = 0;
@@ -124,5 +133,19 @@ public class Main {
             }
         }
         return releaseYear;
+    }
+
+    //  ДЗ 8.1
+    static void task1(int arg) {
+        System.out.printf("%d - %s год.", arg, yearIsLeap(arg));
+    }
+
+    static String yearIsLeap(int year) {
+        if (year > 0) {
+            if (((year % 4) == 0 && (year % 100) != 0) || (year % 400) == 0) {
+                return "високосный";
+            } else return "не високосный";
+        }
+        throw new RuntimeException("Год введён некорректно.");
     }
 }
