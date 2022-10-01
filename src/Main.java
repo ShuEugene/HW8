@@ -15,6 +15,10 @@ public class Main {
 
     //  ДЗ 8.3
     static void task3(int distance) {
+        informAboutTheDeliveryTime(distance);
+    }
+
+    static void informAboutTheDeliveryTime(int distance) {
         String deliveryMessage;
         if (distance > 0) {
             String deliveryTime = determineDTime(distance);
@@ -127,7 +131,9 @@ public class Main {
                     releaseYear = Integer.parseInt(currentParameter);
                     if (releaseYear > 0) {
                         return releaseYear;
-                    } else throw new RuntimeException("Год выпуска устройства не указан.");
+                    } else {
+                        throw new RuntimeException("Год выпуска устройства не указан.");
+                    }
                 } catch (NumberFormatException e) {
                 }
             }
